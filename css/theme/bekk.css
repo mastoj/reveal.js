@@ -78,12 +78,14 @@ body {
 
 .first-page h1 {
 	color: #fff;
+	font-size: 2em;
 	padding-bottom: 0.3em;
 	border-bottom: 0.02em solid #f04e52;
 }
 
 .first-page h2 {
 	color: #cbc0b7;
+	font-size: 1.4em;
 }
 
 /*********************************************

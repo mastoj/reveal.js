@@ -76,6 +76,9 @@ body {
 					0 20px 20px rgba(0,0,0,.15);*/
 }
 
+/*
+* Bekk styles
+*/
 .first-page h1 {
 	color: #fff;
 	padding-bottom: 0.3em;
@@ -84,6 +87,16 @@ body {
 
 .first-page h2 {
 	color: #cbc0b7;
+}
+
+.presentation-meta {
+	margin-top: 200px;
+}
+.presentation-meta * {
+	display: block;
+	font-style: italic;
+	font-size: 0.5em;
+	line-height: 1em;
 }
 
 /*********************************************

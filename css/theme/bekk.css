@@ -76,37 +76,12 @@ body {
 					0 20px 20px rgba(0,0,0,.15);*/
 }
 
-/*
-* Bekk styles
-*/
-.first-page h1 {
-	color: #fff;
-	font-size: 2em;
-	padding-bottom: 0.3em;
-	border-bottom: 0.02em solid #f04e52;
-}
-
-.first-page h2 {
-	color: #cbc0b7;
-	font-size: 1.4em;
-}
-
-.presentation-meta {
-	margin-top: 200px;
-}
-.presentation-meta * {
-	display: block;
-	font-style: italic;
-	font-size: 0.5em;
-	line-height: 1em;
-}
-
 /*********************************************
  * LINKS
  *********************************************/
 
 .reveal a:not(.image) {
-	color: hsl(185, 85%, 50%);
+	color: #f04e52;/* hsl(185, 85%, 50%);*/
 	text-decoration: none;
 
 	-webkit-transition: color .15s ease;
@@ -115,17 +90,17 @@ body {
 	     -o-transition: color .15s ease;
 	        transition: color .15s ease;
 }
-	.reveal a:not(.image):hover {
-		color: hsl(185, 85%, 70%);
-		
-		text-shadow: none;
-		border: none;
-		border-radius: 2px;
-	}
+.reveal a:not(.image):hover {
+	color: #f04e52; /* hsl(185, 85%, 70%);*/
+	
+	text-shadow: none;
+	border: none;
+	border-radius: 2px;
+}
 
 .reveal .roll span:after {
 	color: #fff;
-	background: hsl(185, 60%, 35%);
+	background: #f04e52; /*hsl(185, 60%, 35%);*/
 }
 
 
@@ -179,14 +154,53 @@ body {
 .reveal .progress {
 	background: rgba(0,0,0,0.2);
 }
-	.reveal .progress span {
-		background: hsl(185, 85%, 50%);
+.reveal .progress span {
+	background: hsl(185, 85%, 50%);
 
-		-webkit-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-		   -moz-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-		    -ms-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-		     -o-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-		        transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
-	}
+	-webkit-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+	   -moz-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+	    -ms-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+	     -o-transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+	        transition: width 800ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+}
 
+/*
+* Bekk styles
+*/
+.first-page h1 {
+	color: #fff;
+	font-size: 2em;
+	padding-bottom: 0.3em;
+	border-bottom: 0.02em solid #f04e52;
+}
 
+.first-page h2 {
+	color: #cbc0b7;
+	font-size: 1.4em;
+}
+
+.presentation-meta {
+	margin-top: 200px;
+}
+.presentation-meta * {
+	display: block;
+	font-style: italic;
+	font-size: 0.5em;
+	line-height: 1em;
+}
+ul.keyword-list {
+	list-style: none;
+}
+.keyword-list .key{
+	width: 30%;
+	display: inline-block;
+}
+.keyword-list .key, .keyword-list .value>.details {
+	color: #cbc0b7;
+	font-size: 0.7em;
+}
+.keyword-list .value {
+	display: inline-block;
+	vertical-align: top;
+	width: 68%;
+}

@@ -204,3 +204,53 @@ ul.keyword-list {
 	vertical-align: top;
 	width: 68%;
 }
+
+.bg-circle {
+	height: 260px;
+	border-radius: 130px;
+ 	-moz-border-radius: 130px;
+ 	-webkit-border-radius: 130px;
+ 	width: 260px;
+}
+
+.bg-circle > * {
+	padding-top: 150px;
+}
+
+.bekk .circle-heading * {
+	padding: 0;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.lower-left {
+	bottom: 20px;
+	left: 20px;
+}
+
+.bekk hgroup {
+	display: block;
+}
+
+.bekk .bg-red * {
+	color: #fff;
+}
+
+.bekk .bg-red {
+	background-color: #f04e52;
+}
+
+.bekk .absolute {
+	position: absolute;	
+}
+
+.what {
+	background-image:url('../../img/confused.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}
+
+.what h2 {
+	top: 99px;
+	left: 15px;
+}

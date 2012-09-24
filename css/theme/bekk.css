@@ -26,7 +26,7 @@
 
 body {
 	font-family: 'Lato', Times, 'Times New Roman', serif;
-	font-size: 36px;
+	font-size: 32px;
 	font-weight: 200;
 	letter-spacing: -0.02em;
 	color: #eee;
@@ -244,6 +244,14 @@ ul.keyword-list {
 	position: absolute;	
 }
 
+.bekk ul {
+	list-style: none;
+}
+
+.bekk .x-large {
+	font-size: 2em;
+}
+
 .what {
 	background-image:url('../../img/confused.jpg');
 	background-repeat: no-repeat;
@@ -253,4 +261,27 @@ ul.keyword-list {
 .what h2 {
 	top: 99px;
 	left: 15px;
+}
+
+/* columns */
+.bekk .columns > * {
+	height: 100%;
+	float: left;
+}
+.bekk .columns .column-3 {
+	width: 33%;
+}
+.bekk .columns .column-2 {
+	width: 50%;
+}
+
+.embrace .list {
+	margin-top: 145px;
+}
+.embrace .last {
+	height: 600px;
+	background-image:url('../../img/Embrace.jpg');
+	background-repeat: no-repeat;
+	background-size: 90% auto;
+	background-position: center center;
 }

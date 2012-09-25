@@ -223,8 +223,22 @@ ul.keyword-list {
 	vertical-align: middle;
 }
 
+.bekk .circle-heading>* {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -0.5em;
+    position: relative;
+    top: 50%;
+}
+
 .lower-left {
 	bottom: 20px;
+	left: 20px;
+}
+
+.upper-left {
+	top: 20px;
 	left: 20px;
 }
 
@@ -257,23 +271,34 @@ ul.keyword-list {
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 }
-
+/*
 .what h2 {
 	top: 99px;
 	left: 30px;
+}*/
+
+.why {
+	background-image:url('../../img/why.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% auto;	
 }
 
 /* columns */
 .bekk .columns > * {
 	height: 100%;
+	width: 100%;
 	float: left;
 }
-.bekk .columns .column-3 {
-	width: 33%;
+.bekk .columns .column-1 {
+	width: 100%;
 }
 .bekk .columns .column-2 {
 	width: 50%;
 }
+.bekk .columns .column-3 {
+	width: 33%;
+}
+
 
 .embrace .list {
 	margin-top: 145px;

@@ -260,7 +260,7 @@ ul.keyword-list {
 
 .what h2 {
 	top: 99px;
-	left: 15px;
+	left: 30px;
 }
 
 /* columns */
@@ -284,4 +284,36 @@ ul.keyword-list {
 	background-repeat: no-repeat;
 	background-size: 90% auto;
 	background-position: center center;
+	display: table-cell;
 }
+
+.embrace .last>* {
+	position: relative;
+	top: 41%;
+	font-size: 2em;
+}
+
+.embrace .last .container *
+{
+	display: inline-block;
+	background-color: rgba(108, 101, 89, 0.75);
+	line-height: 1em;
+}
+
+.richardson .image .footer {
+	margin-right: 107px;
+}
+
+.bekk .footer {
+	font-size: 12px;
+	line-height: 1em;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+}
+
+.bekk .footer .references {
+	float: right;
+	position: relative;
+}
+

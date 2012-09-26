@@ -280,6 +280,13 @@ ul.keyword-list {
 	background-size: 100% auto;	
 }
 
+.how {
+	background-image:url('../../img/snoopy3.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+
 /* columns */
 .bekk .columns > * {
 	height: 100%;
@@ -347,6 +354,10 @@ ul.keyword-list {
 	width: 100%;
 	height: auto;
 	float: none;
+}
+
+.bekk .footer * {
+	background-color: rgba(60, 60, 60, 0.33);
 }
 
 .bekk .footer .references {

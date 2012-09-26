@@ -335,6 +335,8 @@ ul.keyword-list {
 	position: absolute;
 	bottom: 0px;
 	width: 100%;
+	height: auto;
+	float: none;
 }
 
 .bekk .footer .references {

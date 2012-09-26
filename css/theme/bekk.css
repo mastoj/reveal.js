@@ -179,6 +179,8 @@ body {
 	font-size: 1.4em;
 }
 
+
+
 .presentation-meta {
 	margin-top: 200px;
 }
@@ -271,11 +273,6 @@ ul.keyword-list {
 	background-repeat: no-repeat;
 	background-size: 100% auto;
 }
-/*
-.what h2 {
-	top: 99px;
-	left: 30px;
-}*/
 
 .why {
 	background-image:url('../../img/why.jpg');
@@ -327,6 +324,19 @@ ul.keyword-list {
 
 .richardson .image .footer {
 	margin-right: 107px;
+}
+
+.shift img.facebook, .shift img.twitter {
+	border: none;
+	background: none;
+}
+
+.shift .facebook {
+	float: left;
+}
+
+.shift .twitter {
+	float: right;
 }
 
 .bekk .footer {

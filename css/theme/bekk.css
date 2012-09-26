@@ -286,6 +286,9 @@ ul.keyword-list {
 	background-size: 100% 100%;
 }
 
+.agenda .column-1 {
+	margin-top: 50px;
+}
 
 /* columns */
 .bekk .columns > * {
@@ -365,3 +368,25 @@ ul.keyword-list {
 	position: relative;
 }
 
+.bekk .header-2:before {
+	border-top: 1px solid #C9C0B5;
+	bottom: 0;
+	content: "";
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0.6em;
+	z-index: -1;
+}
+
+.bekk .header-2 {
+	font-size: 1.2em;
+	float: left;
+	text-transform: uppercase;
+	text-align: left;
+}
+
+.bekk .header-2 span {
+	background: none repeat scroll 0 0 #000000;
+	padding-right: 0.6em;
+}

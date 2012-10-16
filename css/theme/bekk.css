@@ -292,7 +292,6 @@ ul.keyword-list {
 
 /* columns */
 .bekk .columns > * {
-	height: 100%;
 	width: 100%;
 	float: left;
 }
@@ -368,6 +367,10 @@ ul.keyword-list {
 	position: relative;
 }
 
+.bekk .footer .references ul {
+	margin-left: 0px;
+}
+
 .bekk .header-2:before {
 	border-top: 1px solid #C9C0B5;
 	bottom: 0;
@@ -377,7 +380,7 @@ ul.keyword-list {
 	right: 0;
 	top: 0.6em;
 	z-index: -1;
-}
+}	
 
 .bekk .header-2 {
 	font-size: 1.2em;
@@ -389,4 +392,83 @@ ul.keyword-list {
 .bekk .header-2 span {
 	background: none repeat scroll 0 0 #000000;
 	padding-right: 0.6em;
+}
+
+div.input>*,
+div.input textarea,
+div.input .request input[type="text"] {
+	width: 99%;
+}
+
+div.input textarea,
+div.input .request input[type="text"],
+div.input .request select,
+div.input .request .submit {
+	float: right;
+	font-size: 0.6em;
+	margin-bottom: 3px;
+}
+
+div.input textarea {
+	font-weight: bold;
+} 
+
+div.input .request .content-type {
+	width: 60%;
+}
+div.input .request .method {
+	width: 30%;
+	float: left;
+}
+.property {
+	font-size: 0.6em;
+	line-height: 1em;
+	text-align: left;
+}
+.property span {
+	display: inline-block;
+}
+.property .key {
+	width: 95px;
+}
+.result {
+	height: 250px;
+	overflow-y: scroll;
+}
+
+.contact.odd {
+	background-color: #353535
+}
+
+.contact {
+	margin-bottom: 10px;
+	padding: 5px;
+}
+
+.raw {
+	position: relative;
+}
+.raw .tabs {
+	float: left;
+	margin-left: 0px;
+}
+.raw .tabs * {
+	float: left;
+	font-size: 0.8em;
+	height: 30px;
+	padding-right: 10px;
+}
+
+.tab-content {
+	margin-top: 10px;
+	position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: none;
+}
+
+.tab-content.active {
+	display: block;
 }

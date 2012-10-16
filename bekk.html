@@ -61,7 +61,7 @@
                                 <label class="key">Sparetime: </label> <span class="value">Retired floorball player</span>
                             </li>
                             <li>
-                                <label class="key">Professional history: </label> <span class="value">Chalmers University <span class="details">(haskell, java, c, c++, assembly...)</span>, VMware <span class="details">(perl, java...)</span>, Accenture <span class="details">(SAP, java)</span>, Netlight <span class="details">(perl, java, .NET...), EDB ErgoGroup/Evry (.NET), BEKK (.NET)</span></span>        
+                                <label class="key">Professional history: </label> <span class="value">Chalmers University <span class="details">(haskell, java, c, c++, assembly...)</span>, VMware <span class="details">(perl, java...)</span>, Accenture <span class="details">(SAP, java)</span>, Netlight <span class="details">(perl, java, .NET...)</span>, EDB ErgoGroup/Evry <span class="details">(.NET)</span>, BEKK <span class="details">(.NET)</span>
                             </li>
                         </ul>
                     </p>
@@ -195,15 +195,57 @@
                         </div>
                     </footer>
                     </section>
-                    <section class="sub crud">
+                    <section id="crud" class="sub crud columns example">
                         <h2 class="header-2">
                             <span>CRUD</span>
                         </h2>
-
+                        <div class="column-2 input">
+                            <div class="request">
+                                <input class="url" type="text" value="http://localhost:52067/api/Contacts" class="url" />
+                                <select class="method">
+                                    <option value="GET">GET</option>
+                                    <option value="POST">POST</option>
+                                    <option value="PUT">PUT</option>
+                                    <option value="DELETE">DELETE</option>
+                                </select>
+                                <select class="content-type">
+                                    <option value="application/json; charset=utf-8">application/json</option>
+                                    <option value="application/xml; charset=utf-8">application/xml</option>
+                                    <option value="image/jpg">image/jpg</option>
+                                </select>
+                                <textarea class="body">
+                                </textarea>
+                                <input type="button" class="submit" value="send"/>
+                            </div>
+                        </div>
+                        <div class="column-2 result" data-bind="template: { name: 'contact-template', data: contacts, foreach: contacts }"></div>
+                        <div class="column-1 raw">
+                            <ul class="tabs">
+                                <li class="tab">
+                                    <a href="#requestHeaders">Request headers</a>
+                                <li class="tab">
+                                <li class="tab">
+                                    <a href="#requestBody">Request body</a>
+                                <li class="tab">
+                                <li class="tab">
+                                    <a href="#responseHeaders">Response headers</a>
+                                <li class="tab">
+                                <li class="tab">
+                                    <a href="#responseBody">Response body</a>
+                                <li>
+                            </ul>
+                            <div class="tab-content request-headers"></div>
+                            <div class="tab-content request-body"></div>
+                            <div class="tab-content response-headers">
+                                <span data-bind="visible: responseHeaders().length === 0">No data</span>
+                                <div data-bind="template: { name: 'headers-template', data: responseHeaders, foreach: responseHeaders }"></div>
+                            </div>
+                            <div class="tab-content response-body"></div>
+                        </div>
                     </section>
                 </section>
                 <!-- Example of nested vertical slides -->
-                <section>
+<!--                <section>
                     <section>
                         <h2>Vertical Slides</h2>
                         <p>
@@ -432,7 +474,7 @@ function linkify( selector ) {
                 <section>
                     <h1>THE END</h1>
                     <h3>BY Hakim El Hattab / hakim.se</h3>
-                </section>
+                </section>-->
             </div>
 
             <!-- The navigational controls UI -->
@@ -450,6 +492,38 @@ function linkify( selector ) {
 
         <script src="lib/js/head.min.js"></script>
         <script src="js/reveal.min.js"></script>
+        <script src="js/jquery-1.8.2.min.js"></script>
+        <script src="js/knockout-2.1.0.js"></script>
+        <script src="js/tdc.js"></script>
+
+        <script type="text/html" id="contact-template">
+            <div class="contact" data-bind="css: {odd: oddContact()}">
+                <div class="property">
+                    <span class="key">Id:</span>
+                    <span class="value"><span data-bind="text: Id"></span></span>
+                </div>
+                <div class="property">
+                    <span class="key">Name:</span>
+                    <span class="value"><span data-bind="text: FirstName"></span> <span data-bind="text: LastName"></span></span>
+                </div>
+                <div class="property">
+                    <span class="key">Phone number: </span>
+                    <span class="value"><span data-bind="text: PhoneNumber"></span></span>
+                </div>                
+                <div class="property">
+                    <span class="key">Address: </span>
+                    <span class="value"><span data-bind="text: Address"></span></span>
+                </div>                
+            </div>
+        </script>
+        <script type="text/html" id="headers-template">
+            <div class="header">
+                <div class="property">
+                    <span class="Key"><span data-bind="text: Key"></span></span>
+                    <span class="Value"><span data-bind="text: Value"></span></span>
+                </div>                
+            </div>
+        </script>
 
         <script>
             
@@ -473,8 +547,6 @@ function linkify( selector ) {
                     { src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
                 ]
             });
-            
         </script>
-
     </body>
 </html>

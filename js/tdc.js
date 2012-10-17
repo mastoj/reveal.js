@@ -1,7 +1,26 @@
+
+var requestHeaders = [];
+
+XMLHttpRequest.prototype.wrappedSetRequestHeader = 
+  XMLHttpRequest.prototype.setRequestHeader; 
+
+XMLHttpRequest.prototype.setRequestHeader = function(key, value) {
+    this.wrappedSetRequestHeader(key, value);
+    if(!requestHeaders) {
+        requestHeaders = [];
+    }
+
+    // Add the value to the header
+    requestHeaders.push({"Key": key, "Value": value});
+}
+
 function ViewModel() {
     var self = this;
     self.contacts = ko.observableArray();
     self.responseHeaders = ko.observableArray();
+    self.requestHeaders = ko.observableArray();
+    self.requestBody = ko.observable();
+    self.responseBody = ko.observable();
     self.addContacts = function (contacts) {
         for (var contactIndex in contacts) {
             self.addContact(contacts[contactIndex]);
@@ -19,18 +38,26 @@ function ViewModel() {
             self.addResponseHeader(responseHeaders[responseHeaderIndex]);
         }
     };
-    this.addResponseHeader = function (contact) {
-        self.responseHeaders.unshift(contact);
+    this.addResponseHeader = function (responseHeader) {
+        self.responseHeaders.unshift(responseHeader);
     };
     this.clearResponseHeaders = function() {
-    	self.responseHeaders.removeAll();
+        self.responseHeaders.removeAll();
+    }
+    self.addRequestHeaders = function (requestHeaders) {
+        for (var requestHeaderIndex in requestHeaders) {
+            self.addRequestHeader(requestHeaders[requestHeaderIndex]);
+        }
+    };
+    this.addRequestHeader = function (requestHeader) {
+        self.requestHeaders.unshift(requestHeader);
+    };
+    this.clearRequestHeaders = function() {
+        self.requestHeaders.removeAll();
     }
     this.empty = function() {
     	self.contacts.removeAll();
     };
-//    this.oddContact = function() {
-//    	return self.contacts.indexOf(this).Index % 2 !== 0;
-//    }
 }
 
 function readHeaders(resObj) {
@@ -42,7 +69,8 @@ function readHeaders(resObj) {
 		var elems = headersStringArr[headerRowIndex].split(": ");
 		var key = elems[0];
 		var value = elems[1];
-		headers.push({"Key": key, "Value": value});
+        if(key || value)
+    		headers.push({"Key": key, "Value": value});
 	}
 	return headers;
 }
@@ -53,13 +81,19 @@ $(function()
     ko.applyBindings(model);
 
     $(".example .submit").click(function() {
+        model.requestBody("");
+        model.responseBody("");
+        model.empty();
+        model.clearResponseHeaders();
+        model.clearRequestHeaders();
         var button = $(this);
         var container = button.parents(".example");
         var body = container.find(".request .body")[0];
+        body = jQuery.trim(body.value);
         var url = container.find(".request .url")[0];
         var contentType = container.find(".request .content-type")[0];
         var method = container.find(".request .method")[0];
-
+        requestHeaders = null;
 		var request = $.ajax({
 		    headers: { 
     		    Accept : contentType.value,
@@ -67,24 +101,34 @@ $(function()
 		    },
 			url: url.value,
 			type: method.value,
-			data: jQuery.parseJSON(jQuery.trim(body.value)),
-			success: function(response, status, resObj) {
-				model.empty();
-				var headers = readHeaders(resObj);
-				model.clearResponseHeaders();
-				model.addResponseHeaders(headers);
-				if (response instanceof Array) {
-					model.addContacts(response);
-				}
-			},
-			error: function(response, status, resObj) {
-				var resultContainer = container.find(".result");
-				resultContainer.append(response);
-			}
-		});
+			data: body
+        })
+        .done(function(response, status, jqXHR) {
+            if (response instanceof Array) {
+                model.addContacts(response);
+            }
+            if (response instanceof Object && response.Id !== undefined) {
+                model.addContact(response);
+            }
+            handleXHR(jqXHR);
+        })
+        .fail(function(jqXHR, status, resObj) {
+            handleXHR(jqXHR);
+        });
+        model.addRequestHeaders(requestHeaders);
+        model.requestBody(body);
     });
 
-    $(".tabs a").click(function() {
+    var handleXHR = function(jqXHR) {
+        var headers = readHeaders(jqXHR);
+        headers.push({"Key": "Status code", "Value": jqXHR.status})
+        headers.push({"Key": "Status text", "Value": jqXHR.statusText})
+        model.addResponseHeaders(headers);
+        model.responseBody(jqXHR.responseText);                
+    }
+
+    $(".tabs a").click(function(evt) {
+        evt.preventDefault();
     	var link = $(this);
     	var container = link.parents(".raw");
    		var linkItems = container.find(".tab a");
@@ -94,5 +138,13 @@ $(function()
     	linkItems.removeClass("active");
     	link.addClass("active");
     	$(divItems.get(index)).addClass("active");
+    });
+
+    $(".insertSample").click(function(evt) {
+        evt.preventDefault();
+        var link = $(this);
+        var container = link.parents(".request");
+        var exampleJson = '{FirstName: "Tomas", LastName: "Jansson", PhoneNumber: "123123123", Address:"Street", City:"Oslo", Zip: "1234", Email: "some@address.com"}';
+        container.find(".body").val(exampleJson);
     });
 });

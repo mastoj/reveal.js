@@ -195,9 +195,21 @@
                         </div>
                     </footer>
                     </section>
+                    <section class="sub columns">
+                        <h2 class="header-2">
+                            <span>DEMO: CRUD</span>
+                        </h2>
+                        <div class="column-1">
+                            <ul>
+                                <li>Set the stage</li>
+                                <li>Routing</li>
+                                <li>Model binding</li>
+                            </ul>
+                        </div>
+                    </section>
                     <section id="crud" class="sub crud columns example">
                         <h2 class="header-2">
-                            <span>CRUD</span>
+                            <span>DEMO: CRUD</span>
                         </h2>
                         <div class="column-2 input">
                             <div class="request">
@@ -215,6 +227,7 @@
                                 </select>
                                 <textarea class="body">
                                 </textarea>
+                                <a href="#sampleData" class="insertSample insert-sample">Insert sample data</a>
                                 <input type="button" class="submit" value="send"/>
                             </div>
                         </div>
@@ -222,7 +235,7 @@
                         <div class="column-1 raw">
                             <ul class="tabs">
                                 <li class="tab">
-                                    <a href="#requestHeaders">Request headers</a>
+                                    <a href="#requestHeaders" class="active">Request headers</a>
                                 <li class="tab">
                                 <li class="tab">
                                     <a href="#requestBody">Request body</a>
@@ -234,247 +247,185 @@
                                     <a href="#responseBody">Response body</a>
                                 <li>
                             </ul>
-                            <div class="tab-content request-headers"></div>
-                            <div class="tab-content request-body"></div>
-                            <div class="tab-content response-headers">
-                                <span data-bind="visible: responseHeaders().length === 0">No data</span>
-                                <div data-bind="template: { name: 'headers-template', data: responseHeaders, foreach: responseHeaders }"></div>
+                            <div class="tab-content request-headers active">
+                                <div data-bind="template: { name: 'headers-template', data: requestHeaders, foreach: requestHeaders }"></div>
                             </div>
-                            <div class="tab-content response-body"></div>
+                            <div class="tab-content request-body body">
+                                <div class="Key" data-bind="text: requestBody"></div>
+                            </div>
+                            <div class="tab-content response-headers">
+                                <div data-bind="template: { name: 'headers-template', data: responseHeaders, foreach: responseHeaders }">
+
+                                </div>
+                            </div>
+                            <div class="tab-content response-body body">
+                                <div class="Key" data-bind="text: responseBody"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="sub columns">
+                        <h2 class="header-2">
+                            <span>DEMO: Validation</span>
+                        </h2>
+                        <div class="column-1">
+                            <ul>
+                                <li>Global action filters</li>
+                                <li>DataAnnotationsExtensions.MVC3 (Nuget)</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section id="validation" class="sub crud columns example">
+                        <h2 class="header-2">
+                            <span>DEMO: Validation</span>
+                        </h2>
+                        <div class="column-2 input">
+                            <div class="request">
+                                <input class="url" type="text" value="http://localhost:52067/api/Contacts" class="url" />
+                                <select class="method">
+                                    <option value="GET">GET</option>
+                                    <option value="POST">POST</option>
+                                    <option value="PUT">PUT</option>
+                                    <option value="DELETE">DELETE</option>
+                                </select>
+                                <select class="content-type">
+                                    <option value="application/json; charset=utf-8">application/json</option>
+                                    <option value="application/xml; charset=utf-8">application/xml</option>
+                                    <option value="image/jpg">image/jpg</option>
+                                </select>
+                                <textarea class="body">
+                                </textarea>
+                                <a href="#sampleData" class="insertSample insert-sample">Insert sample data</a>
+                                <input type="button" class="submit" value="send"/>
+                            </div>
+                        </div>
+                        <div class="column-2 result" data-bind="template: { name: 'contact-template', data: contacts, foreach: contacts }"></div>
+                        <div class="column-1 raw">
+                            <ul class="tabs">
+                                <li class="tab">
+                                    <a href="#requestHeaders" class="active">Request headers</a>
+                                <li class="tab">
+                                <li class="tab">
+                                    <a href="#requestBody">Request body</a>
+                                <li class="tab">
+                                <li class="tab">
+                                    <a href="#responseHeaders">Response headers</a>
+                                <li class="tab">
+                                <li class="tab">
+                                    <a href="#responseBody">Response body</a>
+                                <li>
+                            </ul>
+                            <div class="tab-content request-headers active">
+                                <div data-bind="template: { name: 'headers-template', data: requestHeaders, foreach: requestHeaders }"></div>
+                            </div>
+                            <div class="tab-content request-body body">
+                                <div class="Key" data-bind="text: requestBody"></div>
+                            </div>
+                            <div class="tab-content response-headers">
+                                <div data-bind="template: { name: 'headers-template', data: responseHeaders, foreach: responseHeaders }">
+
+                                </div>
+                            </div>
+                            <div class="tab-content response-body body">
+                                <div class="Key" data-bind="text: responseBody"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="sub columns">
+                        <h2 class="header-2">
+                            <span>DEMO: Content negotiation</span>
+                        </h2>
+                        <div class="column-1">
+                            <ul>
+                                <li>Resource in different formats</li>
+                                <li>Formatters</li>
+                                <li>Fiddler</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="sub columns">
+                        <h2 class="header-2">
+                            <span>DEMO: IoC</span>
+                        </h2>
+                        <div class="column-1">
+                            <ul>
+                                <li>IDependencyResolver</li>
+                           </ul>
+                        </div>
+                    </section>
+                    <section id="ioc" class="sub crud columns example">
+                        <h2 class="header-2">
+                            <span>DEMO: IoC</span>
+                        </h2>
+                        <div class="column-2 input">
+                            <div class="request">
+                                <input class="url" type="text" value="http://localhost:52067/api/Contacts" class="url" />
+                                <select class="method">
+                                    <option value="GET">GET</option>
+                                    <option value="POST">POST</option>
+                                    <option value="PUT">PUT</option>
+                                    <option value="DELETE">DELETE</option>
+                                </select>
+                                <select class="content-type">
+                                    <option value="application/json; charset=utf-8">application/json</option>
+                                    <option value="application/xml; charset=utf-8">application/xml</option>
+                                    <option value="image/jpg">image/jpg</option>
+                                </select>
+                                <textarea class="body">
+                                </textarea>
+                                <a href="#sampleData" class="insertSample insert-sample">Insert sample data</a>
+                                <input type="button" class="submit" value="send"/>
+                            </div>
+                        </div>
+                        <div class="column-2 result" data-bind="template: { name: 'contact-template', data: contacts, foreach: contacts }"></div>
+                        <div class="column-1 raw">
+                            <ul class="tabs">
+                                <li class="tab">
+                                    <a href="#requestHeaders" class="active">Request headers</a>
+                                <li class="tab">
+                                <li class="tab">
+                                    <a href="#requestBody">Request body</a>
+                                <li class="tab">
+                                <li class="tab">
+                                    <a href="#responseHeaders">Response headers</a>
+                                <li class="tab">
+                                <li class="tab">
+                                    <a href="#responseBody">Response body</a>
+                                <li>
+                            </ul>
+                            <div class="tab-content request-headers active">
+                                <div data-bind="template: { name: 'headers-template', data: requestHeaders, foreach: requestHeaders }"></div>
+                            </div>
+                            <div class="tab-content request-body body">
+                                <div class="Key" data-bind="text: requestBody"></div>
+                            </div>
+                            <div class="tab-content response-headers">
+                                <div data-bind="template: { name: 'headers-template', data: responseHeaders, foreach: responseHeaders }">
+
+                                </div>
+                            </div>
+                            <div class="tab-content response-body body">
+                                <div class="Key" data-bind="text: responseBody"></div>
+                            </div>
                         </div>
                     </section>
                 </section>
-                <!-- Example of nested vertical slides -->
-<!--                <section>
-                    <section>
-                        <h2>Vertical Slides</h2>
-                        <p>
-                            Slides can be nested inside of other slides,
-                            try pressing <a href="#/2/1">down</a>.
-                        </p>
-                        <a href="#/2/1" class="image">
-                            <img height="400" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow" />
-                        </a>
-                    </section>
-                    <section>
-                        <h2>Basement Level 1</h2>
-                        <p>Press down or up to navigate.</p>
-                    </section>
-                    <section>
-                        <h2>Basement Level 2</h2>
-                        <p>Cornify</p>
-                        <a class="test" href="http://cornify.com">
-                            <img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-                        </a>
-                    </section>
-                    <section>
-                        <h2>Basement Level 3</h2>
-                        <p>That's it, time to go back up.</p>
-                        <a href="#/2" class="image">
-                            <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-                        </a>
-                    </section>
+                <section class="columns summary">
+                    <h2 class="header-2">
+                        <span>Summary</span>
+                    </h2>
+                    <div class="column-1 list">
+                        <ul>
+                            <li>Framework embracing HTTP</li>
+                            <li>It is not REST, but can help you be RESTful</li>
+                            <li>Reach, Scalability, Shift from desktop &rarr; api</li>
+                        </ul>
+                    </div>
                 </section>
-
-                <section>
-                    <h2>Holistic Overview</h2>
-                    <p>
-                        Press <strong>ESC</strong> to enter the slide overview!
-                    </p>
+                <section class="questions">
+                    <div class="circle-heading bg-circle bg-red upper-left absolute">
+                        <h2 class="first-header">Questions?/</h2><h2 class="second-header">Thank you!</h2>
+                    </div>
                 </section>
-
-                <section>
-                    <h2>rvl.io</h2>
-                    <p>
-                        If you don't like writing slides in HTML you can use the online editor <a href="http://www.rvl.io" target="_blank">rvl.io</a>.
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Works in Mobile Safari</h2>
-                    <p>
-                        Try it out! You can swipe through the slides pinch your way to the overview.
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Marvelous Unordered List</h2>
-                    <ul>
-                        <li>No order here</li>
-                        <li>Or here</li>
-                        <li>Or here</li>
-                        <li>Or here</li>
-                    </ul>
-                </section>
-                
-                <section>
-                    <h2>Fantastic Ordered List</h2>
-                    <ol>
-                        <li>One is smaller than...</li>
-                        <li>Two is smaller than...</li>
-                        <li>Three!</li>
-                    </ol>
-                </section>
-
-                <section data-markdown>
-                    ## Markdown support
-                    
-                    For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-
-                    <pre><code contenteditable style="margin-top: 20px;">&lt;section data-markdown&gt;
-  ## Markdown support
-
-  For those of you who like that sort of thing. 
-  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-&lt;/section&gt;
-                    </code></pre>
-                </section>
-
-                <section>
-                    <h2>Transition Styles</h2>
-                    <p>
-                        You can select from different transitions, like: <br>
-                        <a href="http://lab.hakim.se/reveal-js/?transition=cube">Cube</a> -
-                        <a href="http://lab.hakim.se/reveal-js/?transition=page">Page</a> -
-                        <a href="http://lab.hakim.se/reveal-js/?transition=concave">Concave</a> -
-                        <a href="http://lab.hakim.se/reveal-js/?transition=linear">Linear</a>
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Themes</h2>
-                    <p>
-                        Reveal.js comes with a few themes built in: <br>
-                        <a href="http://lab.hakim.se/reveal-js/?theme=sky">Sky</a> -
-                        <a href="http://lab.hakim.se/reveal-js/?theme=beige">Beige</a> -
-                        <a href="http://lab.hakim.se/reveal-js/?theme=simple">Simple</a> -
-                        <a href="http://lab.hakim.se/reveal-js/">Default</a>
-                    </p>
-                    <p>
-                        <small>
-                            * Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-                        </small>
-                    </p>
-                </section>
-
-                <section>
-                    <section data-state="alert">
-                        <h2>Global State</h2>
-                        <p>
-                            Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-                            will be added as a class to the document element when the slide is open. This lets you
-                            apply broader style changes, like switching the background.
-                        </p>
-                        <a href="#/7/1" class="image">
-                            <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-                        </a>
-                    </section>
-                    <section data-state="blackout">
-                        <h2>"blackout"</h2>
-                        <a href="#/7/2" class="image">
-                            <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-                        </a>
-                    </section>
-                    <section data-state="soothe">
-                        <h2>"soothe"</h2>
-                        <a href="#/7/0" class="image">
-                            <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-                        </a>
-                    </section>
-                </section>
-
-                <section data-state="customevent">
-                    <h2>Custom Events</h2>
-                    <p>
-                        Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-                    </p>
-                    <pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-    console.log( '"customevent" has fired' );
-} );
-                    </code></pre>
-                </section>
-
-                <section>
-                    <h2>Clever Quotes</h2>
-                    <p>
-                        These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-                        The nice thing about standards is that there are so many to choose from</q> and block:
-                    </p>
-                    <blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-                        For years there has been a theory that millions of monkeys typing at random on millions of typewriters would 
-                        reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
-                    </blockquote>
-                </section>
-                
-                <section>
-                    <h2>Pretty Code</h2>
-                    <pre><code contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-    
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
-}
-                    </code></pre>
-                    <p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-                </section>
-                
-                <section>
-                    <h2>Intergalactic Interconnections</h2>
-                    <p>
-                        You can link between slides internally,
-                        <a href="#/2/3">like this</a>.
-                    </p>
-                </section>
-
-                <section>
-                    <h2>Fragmented Views</h2>
-                    <p>Hit the next arrow...</p>
-                    <p class="fragment">... to step through ...</p>
-                    <ol>
-                        <li class="fragment"><code>any type</code></li>
-                        <li class="fragment"><em>of view</em></li>
-                        <li class="fragment"><strong>fragments</strong></li>
-                    </ol>
-                </section>
-                
-                <section>
-                    <h2>Spectacular image!</h2>
-                    <a class="image" href="http://hakim.se/experiments/html5/breakdom/" target="_blank">
-                        <img width="320" height="412" src="https://s3.amazonaws.com/hakim-static/reveal-js/breakdom.png" alt="BreakDOM game screenshot">
-                    </a>
-                </section>
-                
-                <section>
-                    <h2>Export to PDF</h2>
-                    <p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-                    <iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-                    <script>
-                        document.getElementById('slideshare').attributeName = 'allowfullscreen';
-                    </script>
-                </section>
-                
-                <section>
-                    <h2>Stellar Links</h2>
-                    <ul>
-                        <li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-                        <li><a href="http://hakim.se/projects/reveal-js">Leave feedback on my site</a></li>
-                        <li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-                    </ul>
-                </section>
-                
-                <section>
-                    <h1>THE END</h1>
-                    <h3>BY Hakim El Hattab / hakim.se</h3>
-                </section>-->
             </div>
 
             <!-- The navigational controls UI -->
@@ -519,7 +470,7 @@ function linkify( selector ) {
         <script type="text/html" id="headers-template">
             <div class="header">
                 <div class="property">
-                    <span class="Key"><span data-bind="text: Key"></span></span>
+                    <span class="Key"><span data-bind="text: Key"></span></span>: 
                     <span class="Value"><span data-bind="text: Value"></span></span>
                 </div>                
             </div>

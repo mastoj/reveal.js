@@ -286,6 +286,12 @@ ul.keyword-list {
 	background-size: 100% 100%;
 }
 
+.questions {
+	background-image:url('../../img/Questions.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
 .agenda .column-1 {
 	margin-top: 50px;
 }
@@ -347,7 +353,15 @@ ul.keyword-list {
 .shift .twitter {
 	float: right;
 }
-
+.questions h2 {
+	font-size: 1.4em;
+}
+.questions h2.first-header {
+	margin-top: -40px;
+}
+.questions h2.second-header {
+	margin-top: 10px;
+}
 .bekk .footer {
 	font-size: 12px;
 	line-height: 1em;
@@ -411,6 +425,7 @@ div.input .request .submit {
 
 div.input textarea {
 	font-weight: bold;
+	height: 130px;
 } 
 
 div.input .request .content-type {
@@ -420,6 +435,8 @@ div.input .request .method {
 	width: 30%;
 	float: left;
 }
+
+.tab-content.body div,
 .property {
 	font-size: 0.6em;
 	line-height: 1em;
@@ -429,7 +446,7 @@ div.input .request .method {
 	display: inline-block;
 }
 .property .key {
-	width: 95px;
+	width: 150px;
 }
 .result {
 	height: 250px;
@@ -454,21 +471,27 @@ div.input .request .method {
 }
 .raw .tabs * {
 	float: left;
-	font-size: 0.8em;
+	font-size: 0.85em;
 	height: 30px;
 	padding-right: 10px;
 }
-
 .tab-content {
-	margin-top: 10px;
+	margin-top: 1em;
 	position: absolute;
     bottom: 0;
     top: 0;
     right: 0;
     left: 0;
     display: none;
+    width: 900px;
+    height: 200px;
+    overflow: auto;
 }
 
 .tab-content.active {
 	display: block;
+}
+.insert-sample {
+	float: left;
+	font-size: 0.7em;
 }

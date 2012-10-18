@@ -21,6 +21,7 @@ function ViewModel() {
     self.requestHeaders = ko.observableArray();
     self.requestBody = ko.observable();
     self.responseBody = ko.observable();
+    self.showImage = ko.observable(false);
     self.addContacts = function (contacts) {
         for (var contactIndex in contacts) {
             self.addContact(contacts[contactIndex]);
@@ -88,20 +89,45 @@ $(function()
         model.clearRequestHeaders();
         var button = $(this);
         var container = button.parents(".example");
-        var body = container.find(".request .body")[0];
-        body = jQuery.trim(body.value);
+        var imageContainer = container.find(".image-container");
+        imageContainer.hide();
+        var img = container.find(".contact-image");
         var url = container.find(".request .url")[0];
         var contentType = container.find(".request .content-type")[0];
+        if(contentType.value === "image/jpg") {
+            handleImageRequest(imageContainer, contentType, url);
+        }
+        else {
+            handleRegularRequest(container, contentType, url);
+        }
+    });
+
+    var handleImageRequest = function(imageContainer, contentType, url) {
+        var img = $("<img />").bind("load",function(x, y, z) {
+                if (!this.complete || 
+                    typeof this.naturalWidth == "undefined" || 
+                    this.naturalWidth == 0) {
+                        alert('broken image!');
+                } else {
+                    imageContainer.html(img);
+                    imageContainer.fadeIn();
+                }
+            }).attr("src", url.value);
+    }
+
+    var handleRegularRequest = function(container, contentType, url) {
+        var body = container.find(".request .body")[0];
+        body = jQuery.trim(body.value);
         var method = container.find(".request .method")[0];
         requestHeaders = null;
-		var request = $.ajax({
-		    headers: { 
-    		    Accept : contentType.value,
-		        "Content-Type": "application/json; charset=utf-8"
-		    },
-			url: url.value,
-			type: method.value,
-			data: body
+        var request = $.ajax({
+            headers: { 
+                Accept : contentType.value,
+                "Content-Type": "application/json; charset=utf-8"
+            },
+            url: url.value,
+            type: method.value,
+            data: body
         })
         .done(function(response, status, jqXHR) {
             if (response instanceof Array) {
@@ -117,7 +143,7 @@ $(function()
         });
         model.addRequestHeaders(requestHeaders);
         model.requestBody(body);
-    });
+    }
 
     var handleXHR = function(jqXHR) {
         var headers = readHeaders(jqXHR);

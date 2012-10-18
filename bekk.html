@@ -231,7 +231,11 @@
                                 <input type="button" class="submit" value="send"/>
                             </div>
                         </div>
-                        <div class="column-2 result" data-bind="template: { name: 'contact-template', data: contacts, foreach: contacts }"></div>
+                        <div class="column-2 result" >
+                            <div data-bind="template: { name: 'contact-template', data: contacts, foreach: contacts }"></div>
+                            <div class="image-container">
+                            </div>
+                        </div>
                         <div class="column-1 raw">
                             <ul class="tabs">
                                 <li class="tab">
@@ -298,7 +302,11 @@
                                 <input type="button" class="submit" value="send"/>
                             </div>
                         </div>
-                        <div class="column-2 result" data-bind="template: { name: 'contact-template', data: contacts, foreach: contacts }"></div>
+                        <div class="column-2 result" >
+                            <div data-bind="template: { name: 'contact-template', data: contacts, foreach: contacts }"></div>
+                            <div class="image-container">
+                            </div>
+                        </div>
                         <div class="column-1 raw">
                             <ul class="tabs">
                                 <li class="tab">
@@ -342,6 +350,66 @@
                             </ul>
                         </div>
                     </section>
+                    <section id="contentneg" class="sub crud columns example">
+                        <h2 class="header-2">
+                            <span>DEMO: Content negotiation</span>
+                        </h2>
+                        <div class="column-2 input">
+                            <div class="request">
+                                <input class="url" type="text" value="http://localhost:52067/api/Contacts/1?format=jpg" class="url" />
+                                <select class="method">
+                                    <option value="GET">GET</option>
+                                    <option value="POST">POST</option>
+                                    <option value="PUT">PUT</option>
+                                    <option value="DELETE">DELETE</option>
+                                </select>
+                                <select class="content-type">
+                                    <option value="application/json; charset=utf-8">application/json</option>
+                                    <option value="application/xml; charset=utf-8">application/xml</option>
+                                    <option value="image/jpg" selected="selected">image/jpg</option>
+                                </select>
+                                <textarea class="body">
+                                </textarea>
+                                <a href="#sampleData" class="insertSample insert-sample">Insert sample data</a>
+                                <input type="button" class="submit" value="send"/>
+                            </div>
+                        </div>
+                        <div class="column-2 result" >
+                            <div data-bind="template: { name: 'contact-template', data: contacts, foreach: contacts }"></div>
+                            <div class="image-container">
+                            </div>
+                        </div>
+                        <div class="column-1 raw">
+                            <ul class="tabs">
+                                <li class="tab">
+                                    <a href="#requestHeaders" class="active">Request headers</a>
+                                <li class="tab">
+                                <li class="tab">
+                                    <a href="#requestBody">Request body</a>
+                                <li class="tab">
+                                <li class="tab">
+                                    <a href="#responseHeaders">Response headers</a>
+                                <li class="tab">
+                                <li class="tab">
+                                    <a href="#responseBody">Response body</a>
+                                <li>
+                            </ul>
+                            <div class="tab-content request-headers active">
+                                <div data-bind="template: { name: 'headers-template', data: requestHeaders, foreach: requestHeaders }"></div>
+                            </div>
+                            <div class="tab-content request-body body">
+                                <div class="Key" data-bind="text: requestBody"></div>
+                            </div>
+                            <div class="tab-content response-headers">
+                                <div data-bind="template: { name: 'headers-template', data: responseHeaders, foreach: responseHeaders }">
+
+                                </div>
+                            </div>
+                            <div class="tab-content response-body body">
+                                <div class="Key" data-bind="text: responseBody"></div>
+                            </div>
+                        </div>
+                    </section>
                     <section class="sub columns">
                         <h2 class="header-2">
                             <span>DEMO: IoC</span>
@@ -376,7 +444,11 @@
                                 <input type="button" class="submit" value="send"/>
                             </div>
                         </div>
-                        <div class="column-2 result" data-bind="template: { name: 'contact-template', data: contacts, foreach: contacts }"></div>
+                        <div class="column-2 result" >
+                            <div data-bind="template: { name: 'contact-template', data: contacts, foreach: contacts }"></div>
+                            <div class="image-container">
+                            </div>
+                        </div>
                         <div class="column-1 raw">
                             <ul class="tabs">
                                 <li class="tab">

@@ -462,6 +462,14 @@ div.input .request .method {
 	padding: 5px;
 }
 
+.example div.image-container,
+ .example div.image-container img {
+	max-width: 95%;
+	max-height: 95%;
+	margin: 0px;
+	overflow: none;
+}
+
 .raw {
 	position: relative;
 }

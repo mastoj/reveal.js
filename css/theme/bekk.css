@@ -274,6 +274,10 @@ ul.keyword-list {
 	background-size: 100% auto;
 }
 
+.what1 {
+	padding-top: 300px;
+}
+
 .why {
 	background-image:url('../../img/why.jpg');
 	background-repeat: no-repeat;
